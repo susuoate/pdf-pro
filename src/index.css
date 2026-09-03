@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-thai: 'Sarabun', 'Prompt', system-ui, -apple-system, sans-serif;
+    --font-latin: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-thai), var(--font-latin);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Anti-clipping default line-height for Thai typography */
+  body, p, span, h1, h2, h3, h4, h5, h6, input, textarea, button {
+    line-height: 1.6;
+  }
+
+  [lang="th"], .lang-th {
+    font-family: var(--font-thai), var(--font-latin);
+    line-height: 1.65;
+  }
+}
+
+@layer utilities {
+  /* Thai text safe container classes */
+  .thai-safe-text {
+    line-height: 1.7;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .thai-heading {
+    font-family: 'Prompt', 'Sarabun', sans-serif;
+    line-height: 1.4;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+  }
+
+  /* Custom scrollbar for visual thumbnail ribbons and sidebars */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.4);
+    border-radius: 9999px;
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 85, 99, 0.5);
+  }
+
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
